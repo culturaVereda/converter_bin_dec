@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Decimal para Binário</title>
+    <style>
+        /* Estilos para o formulário */
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 200px;
+            color: #FFF;
+            font-size: 21px;
+            text-align: center;
+            background-image: url("dec_bin.jpeg");
+            
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0074D9;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor Decimal para Binário</h1>
+    <form id="converterForm">
+        <label for="decimalInput">Digite um número decimal:</label>
+        <input type="number" id="decimalInput" min="0">
+        <button type="button" onclick="converter_bin()">Converter</button>
+    </form>
+    <p id="resultado"></p>
+
+    <h1>Conversor Binário para Decimal</h1>
+    <form id="converterForm">
+        <label for="binaryInput">Digite um número Binário:</label>
+        <input type="text" id="binaryInput" min="0">
+        <button type="button" onclick="converter_dec()">Converter</button>
+    </form>
+    
+    <p id="res"></p>
+
+    <script>
+        function converter_bin() {
+            const decimal = parseInt(document.getElementById("decimalInput").value);
+            const binario = decimal.toString(2).padStart(8, "0");
+            document.getElementById("resultado").textContent = `Valor binário: ${binario}`;
+        }
+        function converter_dec() {
+            const binary = document.getElementById("binaryInput").value;
+            const decimal = parseInt(binary, 2);
+            document.getElementById("res").textContent = `Valor decimal: ${decimal}`;
+        }
+
+    </script>
+</body>
+</html>
